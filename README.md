@@ -40,6 +40,8 @@ Consulte a [Documentação de Views](view.md) para mais detalhes sobre esta inte
 
 #### Documentação de Stored Procedure
 
+Consulte a [Documentação de Views](procedure.md) para mais detalhes sobre esta integração.
+
 
 ---
 
