@@ -1,38 +1,34 @@
-Retorno de Movimentos
-Os retornos de movimentos são divididos em três categorias principais, cada uma garantindo a sincronização entre o WMS e o ERP, evitando ações manuais e mantendo o fluxo automatizado:
+# Retorno de Movimentos no Wms Expert
 
-Retorno após a importação de movimentos
-Retorno após a exclusão de movimentos
-Retorno após a finalização de movimentos
-1️⃣ Retorno após a Importação de Movimentos
-O WMS notifica o ERP que um movimento foi recebido e importado, removendo-o das views para evitar duplicações. As procedures utilizadas para este retorno são:
+O sistema **Wms Expert** utiliza retornos de movimentos para garantir a integração perfeita com o ERP, dividindo-os em três categorias:
 
-Entrada
+1. **Retorno após a importação**  
+2. **Retorno após a exclusão**  
+3. **Retorno após a finalização**
 
-CREATE PROCEDURE [dbo].[sp_RetornoImpEntrada] 
-  @codFiliaErp VARCHAR(20), 
-  @codNotaFiscalErp VARCHAR(20), 
-  @codFornecedorErp VARCHAR(20), 
-  @serie INT
-AS
-BEGIN
-  UPDATE NOTAFISCALENTRADA 
-  SET WMS = 1 
-  WHERE codFilialERP = @codFiliaErp 
-    AND codNotaFiscalErp = @codNotaFiscalErp 
-    AND codFornecedorErp = @codFornecedorErp 
-    AND serie = @serie;
-END;
+Cada categoria é implementada através de stored procedures específicas, que asseguram a sincronização de dados sem necessidade de intervenções manuais no ERP.
 
-Saída
+---
 
-CREATE PROCEDURE [dbo].[sp_RetornoImpPedido] 
-  @codFiliaErp VARCHAR(20), 
-  @codPedidoErp VARCHAR(20)
-AS
-BEGIN
-  UPDATE PEDIDO 
-  SET WMS = 1 
-  WHERE codFilialERP = @codFiliaErp 
-    AND codPedidoErp = @codPedidoErp;
-END;
+## 📝 Detalhes dos Retornos
+
+### 1️⃣ Retorno Após a Importação
+
+**Objetivo:** Informar ao ERP que o movimento foi recebido com sucesso.  
+Após a execução correta, o movimento é removido das views correspondentes.  
+
+#### Exemplo: Importação de Entrada
+
+Stored Procedure:  
+```sql
+CREATE procedure [dbo].[sp_RetornoImpEntrada] 
+@codFiliaErp varchar(20), @codNotaFiscalErp varchar(20), @codFornecedorErp varchar(20), @serie int as
+
+begin
+  update NOTAFISCALENTRADA SET WMS = 1 
+  WHERE 
+    codFilialERP = @codFiliaErp and 
+    codNotaFiscalErp = @codNotaFiscalErp and 
+    codFornecedorErp = @codFornecedorErp and
+    serie = @serie
+end
