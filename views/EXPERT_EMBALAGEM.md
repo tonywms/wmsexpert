@@ -1,6 +1,6 @@
 # View EXPERT_EMBALAGEM
 
-Definição da view responsável pelo gerenciamento dos clientes no sistema.  
+Definição da view responsável pelo gerenciamento de Embalagens no sistema.  
 
 ## Código SQL
 
