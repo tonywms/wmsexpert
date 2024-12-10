@@ -38,6 +38,8 @@ Com esta abordagem, coletamos informações diretamente do seu ERP, permitindo q
 #### Documentação de Views  
 Consulte a [Documentação de Views](view.md) para mais detalhes sobre esta integração.
 
+#### Documentação de Stored Procedure
+Consulte a [Documentação de Views](procedure.md) para mais detalhes sobre esta integração.
 ---
 
 ## 📈 Benefícios do Wms Expert  
