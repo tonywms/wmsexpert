@@ -33,11 +33,3 @@ begin
     serie = @serie
 end
 
-## 📝 Detalhes dos Retornos
-
-### 1️⃣ Retorno Após a Importação
-
-**Objetivo:** Informar ao ERP que o movimento foi recebido com sucesso.  
-Após a execução correta, o movimento é removido das views correspondentes.  
-
-#### Exemplo: Importação de Entrada
