@@ -37,7 +37,7 @@ SELECT
   LEFT JOIN PCCIDADE ON pcclient.CODCIDADE = PCCIDADE.CODCIDADE
   where pcclient.dtexclusao is null![image](https://github.com/user-attachments/assets/37ab4054-fbc6-431b-b259-7cc6843cef16)
 
-##
+
 1. **CODIGO** - VARCHAR2(255)
 2. **NOME** - VARCHAR2(60)
 3. **NOMEFANTASIA** - VARCHAR2(60)
@@ -50,5 +50,3 @@ SELECT
 10. **NUMERO** - VARCHAR2(6)
 11. **TELEFONE** - VARCHAR2(13)![image](https://github.com/user-attachments/assets/d55e590f-f997-4518-af58-b778f0490aff)
 
-
-##
