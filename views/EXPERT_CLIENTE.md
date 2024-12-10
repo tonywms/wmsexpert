@@ -29,4 +29,4 @@ CREATE VIEW EXPERT_CLIENTE ("CODIGO", "CPFCNPJ", "NOME", "CODCIDADE", "NOMECIDAD
   left join pcpraca on pcpraca.codpraca = pcclient.codpraca
   left join PCROTAEXP on PCROTAEXP.codrota = pcpraca.rota
   LEFT JOIN PCCIDADE ON pcclient.CODCIDADE = PCCIDADE.CODCIDADE
-  where pcclient.dtexclusao is null![image](https://github.com/user-attachments/assets/fed6a84b-4e1f-4d64-894b-0210e52fb193)
+  where pcclient.dtexclusao is null
