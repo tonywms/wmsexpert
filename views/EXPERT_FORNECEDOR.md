@@ -35,18 +35,6 @@ SELECT
   left join pcpraca on pcpraca.codpraca = pcclient.codpraca
   left join PCROTAEXP on PCROTAEXP.codrota = pcpraca.rota
   LEFT JOIN PCCIDADE ON pcclient.CODCIDADE = PCCIDADE.CODCIDADE
-  where pcclient.dtexclusao is null![image](https://github.com/user-attachments/assets/37ab4054-fbc6-431b-b259-7cc6843cef16)
+  where pcclient.dtexclusao is null
 
-
-1. **CODIGO** - VARCHAR2(255)
-2. **NOME** - VARCHAR2(60)
-3. **NOMEFANTASIA** - VARCHAR2(60)
-4. **CPF** - VARCHAR2(18)
-5. **IE** - VARCHAR2(15)
-6. **ESTADO** - VARCHAR2(2)
-7. **CODCIDADE** - NUMBER
-8. **BAIRRO** - VARCHAR2(40)
-9. **ENDERECO** - VARCHAR2(40)
-10. **NUMERO** - VARCHAR2(6)
-11. **TELEFONE** - VARCHAR2(13)![image](https://github.com/user-attachments/assets/d55e590f-f997-4518-af58-b778f0490aff)
 
