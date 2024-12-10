@@ -52,3 +52,56 @@ begin
 end
 
 ```
+
+---
+
+## Retorno após a Finalização de Movimentos
+
+### Descrição
+Ao concluir um movimento, o Wms envia ao ERP informações de cabeçalho e itens, atualizando o status para que o fluxo siga normalmente. Este processo é realizado via stored procedures.
+
+#### Cabeçalho
+
+```sql
+CREATE procedure [dbo].[sp_RetornoExpEntrada] 
+@codFiliaErp varchar(20), @codNotaFiscalErp varchar(20), 
+@codFornecedorErp varchar(20), @serie int, @dataFimConferencia datetime as
+
+begin
+  update NOTAFISCALENTRADA SET DataFimConferencia = @dataFimConferencia 
+  WHERE 
+    codFilialERP = @codFiliaErp and 
+    codNotaFiscalErp = @codNotaFiscalErp and 
+    codFornecedorErp = @codFornecedorErp and
+    serie = @serie
+end
+
+```
+#### Itens
+
+```sql
+CREATE procedure [dbo].[sp_RetornoExpEntradaItem] 
+@codFiliaErp varchar(20), @codNotaFiscalErp varchar(20), 
+@codFornecedorErp varchar(20), @serie int, @codProdutoErp varchar(20), 
+@qtdRecebida numeric(10,4), @codFuncConf varchar(20), @dtConferencia datetime as
+
+Declare ItensEntrada Cursor for
+  Select codProdutoErp, qtdRecebida, codFuncConf, dtConferencia
+    from ItensNotaFiscalEntrada
+   where 
+    codFiliaErp = @codFiliaErp and 
+    codNotaFiscalErp = @codNotaFiscalErp and 
+    codFornecedorErp = @codFornecedorErp and 
+    serie = @serie
+Open ItensEntrada
+fetch next from ItensEntrada into @codProdutoErp, @qtdRecebida, @codFuncConf, @dtConferencia
+while @@Fetch_Status = 0
+begin
+  Update ItensNotaFiscalEntrada set
+    qtdRecebida = @qtdRecebida,
+    codFuncConf = @codFuncConf,
+    dtConferencia = @dtConferencia
+  where codProdutoErp = @codProdutoErp
+end
+
+
