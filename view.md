@@ -46,4 +46,14 @@ CREATE VIEW EXPERT_CARGA (
   FROM PCBONUSC  
   WHERE pcbonusc.DATABONUS >= TO_DATE('01/10/2024', 'dd/mm/yyyy');
 
-
+# Descrição
+Objetivo: Capturar informações sobre cargas em processamento.
+Colunas:
+CODIGOCARGA: Identificação única da carga.
+CODIGOFILIAL: Código da filial associada.
+DATAINICIOCONF: Data de início da confirmação.
+DATAFIMCONF: Data de término da confirmação.
+DATAEXPORTACAOERP: Data de exportação para o ERP.
+QTDVOLUMES: Quantidade total de volumes na carga.
+Filtros Aplicados:
+Somente registros com data maior ou igual a 01/10/2024.
