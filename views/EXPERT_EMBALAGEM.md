@@ -13,37 +13,17 @@ FROM
     SELECT 
       DISTINCT ROWNUM AS id, 
       null AS codigo, 
-      CAST(
-        pcembalagem.CODPROD AS varchar(30)
-      ) AS codigoproduto, 
-      CAST(
-        codauxiliar AS varchar(20)
-      ) AS codbarra, 
-      CAST(
-        qtunit AS numeric(10, 4)
-      ) AS quantidade, 
+      CAST(pcembalagem.CODPROD AS varchar(30)) AS codigoproduto, 
+      CAST(codauxiliar AS varchar(20)) AS codbarra, 
+      CAST(qtunit AS numeric(10, 4)) AS quantidade, 
       1 AS ativo, 
       CASE WHEN qtunit = 1 THEN 1 ELSE 2 END AS tipo, 
-      CAST(
-        pcembalagem.LARGURA AS numeric(10, 4)
-      ) AS largura, 
-      CAST(
-        pcembalagem.ALTURA AS numeric(10, 4)
-      ) AS altura, 
-      CAST(
-        pcembalagem.COMPRIMENTO AS numeric(10, 4)
-      ) AS profundidade, 
-      CAST(
-        (
-          pcembalagem.LARGURA * pcembalagem.ALTURA * pcembalagem.COMPRIMENTO
-        ) AS numeric(10, 4)
-      ) AS m3, 
-      CAST(
-        pcembalagem.PESOBRUTO AS numeric(10, 4)
-      ) AS pesobruto, 
-      CAST(
-        pcembalagem.PESOLIQ AS numeric(10, 4)
-      ) AS pesoliquido 
+      CAST(pcembalagem.LARGURA AS numeric(10, 4)) AS largura, 
+      CAST(pcembalagem.ALTURA AS numeric(10, 4)) AS altura, 
+      CAST(pcembalagem.COMPRIMENTO AS numeric(10, 4)) AS profundidade, 
+      CAST((pcembalagem.LARGURA * pcembalagem.ALTURA * pcembalagem.COMPRIMENTO) AS numeric(10, 4)) AS m3, 
+      CAST(pcembalagem.PESOBRUTO AS numeric(10, 4)) AS pesobruto, 
+      CAST(pcembalagem.PESOLIQ AS numeric(10, 4)) AS pesoliquido 
     FROM 
       pcembalagem 
     WHERE 
