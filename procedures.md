@@ -7,7 +7,7 @@ Os retornos de movimentos no Wms Expert são fundamentais para garantir a sincro
 
 ---
 
-## Retorno após a Importação de Movimentos
+## Retorno após a Importação de Movimentos (Entradas)
 
 ### Descrição
 Após importar um movimento, o Wms notifica o ERP que o movimento foi recebido. Isso é feito via **stored procedure**, que valida o movimento e remove-o da view correspondente.
@@ -104,4 +104,45 @@ begin
   where codProdutoErp = @codProdutoErp
 end
 
+---
+
+## Retorno após a Importação de Movimentos (Saídas)
+
+### Descrição
+Após importar um movimento, o Wms notifica o ERP que o movimento foi recebido. Isso é feito via **stored procedure**, que valida o movimento e remove-o da view correspondente.
+
+#### Movimentos de Entrada
+```sql
+CREATE procedure [dbo].[sp_RetornoImpPedido] 
+@codFiliaErp varchar(20), @codPedidoErp varchar(20) as
+
+begin
+  update PEDIDO SET WMS = 1 
+  WHERE 
+    codFilialERP = @codFiliaErp and 
+    codPedidoErp = @codPedidoErp
+end
+
+---
+
+## Retorno após a Exclusão de Movimentos
+
+### Descrição
+Quando um movimento é excluído, o Wms notifica o ERP que ele está novamente disponível. Isso é feito via stored procedure, que o retorna para a view correspondente.
+
+#### Movimentos de Entrada
+```sql
+CREATE procedure [dbo].[sp_RetornoLiberaPedido] 
+@codFiliaErp varchar(20), @codPedidoErp varchar(20) as
+
+begin
+  update PEDIDO SET WMS = 0
+  WHERE 
+    codFilialERP = @codFiliaErp and 
+    codPedidoErp = @codPedidoErp
+end
+
+```
+
+---
 
