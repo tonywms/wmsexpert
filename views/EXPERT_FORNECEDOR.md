@@ -37,4 +37,4 @@ SELECT
   LEFT JOIN PCCIDADE ON pcclient.CODCIDADE = PCCIDADE.CODCIDADE
   where pcclient.dtexclusao is null
 
-
+⬅️ Voltar para o README Principal
