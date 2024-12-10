@@ -36,7 +36,7 @@ Com esta abordagem, coletamos informações diretamente do seu ERP, permitindo q
 - Tem **maior facilidade de desenvolvimento**  
 
 #### Documentação de Views  
-Consulte a [Documentação de Views](#) para mais detalhes sobre esta integração.
+Consulte a [Documentação de Views](view.md) para mais detalhes sobre esta integração.
 
 ---
 
