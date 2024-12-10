@@ -1,5 +1,7 @@
 Definição da view responsável pelo gerenciamento dos -- no sistema.  
 
+⬅️ Voltar para o README Principal
+
 ## Código SQL
 
 ```sql
@@ -37,4 +39,4 @@ SELECT
   LEFT JOIN PCCIDADE ON pcclient.CODCIDADE = PCCIDADE.CODCIDADE
   where pcclient.dtexclusao is null
 
-⬅️ Voltar para o README Principal
+
