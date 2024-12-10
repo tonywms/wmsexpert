@@ -27,7 +27,7 @@ begin
     serie = @serie
 end
 
-```sql
+```
 
 ---
 
