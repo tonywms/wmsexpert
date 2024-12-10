@@ -31,22 +31,24 @@ end
 
 ---
 
-## Retorno após a Importação de Movimentos
+## Retorno após a Exclusão de Movimentos
 
 ### Descrição
-Após importar um movimento, o Wms notifica o ERP que o movimento foi recebido. Isso é feito via **stored procedure**, que valida o movimento e remove-o da view correspondente.
+Quando um movimento é excluído, o Wms notifica o ERP que ele está novamente disponível. Isso é feito via stored procedure, que o retorna para a view correspondente.
 
 #### Movimentos de Entrada
 ```sql
-CREATE procedure [dbo].[sp_RetornoImpEntrada] 
+CREATE procedure [dbo].[sp_RetornoLiberaEntrada] 
 @codFiliaErp varchar(20), @codNotaFiscalErp varchar(20), 
 @codFornecedorErp varchar(20), @serie int as
 
 begin
-  update NOTAFISCALENTRADA SET WMS = 1 
+  update NOTAFISCALENTRADA SET WMS = 0 
   WHERE 
     codFilialERP = @codFiliaErp and 
     codNotaFiscalErp = @codNotaFiscalErp and 
     codFornecedorErp = @codFornecedorErp and
     serie = @serie
 end
+
+```
