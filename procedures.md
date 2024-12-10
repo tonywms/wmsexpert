@@ -146,3 +146,63 @@ end
 
 ---
 
+## Retorno após a Finalização de Movimentos
+
+### Descrição
+Ao concluir um movimento, o Wms envia ao ERP informações de cabeçalho e itens, atualizando o status para que o fluxo siga normalmente. Este processo é realizado via stored procedures.
+
+#### Cabeçalho
+
+```sql
+CREATE procedure [dbo].[sp_RetornoExpPedido] 
+@codFiliaErp varchar(20), @codPedidoErp varchar(20), 
+@dataFimConferencia datetime, @dataFimSeparacao datetime as
+
+begin
+  update PEDIDO SET 
+    DataFimConferencia = @dataFimConferencia,
+    DataFimSeparacao = @dataFimSeparacao 
+  WHERE 
+    codFilialERP = @codFiliaErp and 
+    codPedidoErp = @codPedidoErp
+end
+
+```
+#### Itens
+
+```sql
+CREATE procedure [dbo].[sp_RetornoExpEntradaItem] 
+@codFiliaErp varchar(20), @codPedidoErp varchar(20), 
+@codProdutoErp varchar(20), @item varchar(5), 
+@qtdSeparada numeric(10,4), @qtdConferida numeric(10,4), 
+@codFuncConf varchar(20), @codFuncSep varchar(20), 
+@dtFimConferencia datetime, @dtFimSeparacao datetime as
+
+Declare ItensPedido Cursor for
+  Select codProdutoErp, qtdSeparada, qtdConferida, codFuncConf, 
+         codFuncSep, dtFimConferencia, dtFimSeparacao, item
+    from ItensPedido
+   where 
+    codFiliaErp = @codFiliaErp and 
+    codPedidoErp = @codPedidoErp
+Open ItensPedido
+fetch next from ItensPedido into @codProdutoErp, @qtdSeparada, 
+    @qtdConferida, @codFuncConf, @codFuncSep, @dtFimConferencia, 
+    @dtFimSeparacao, @item
+while @@Fetch_Status = 0
+begin
+  Update ItensPedido set
+    qtdSeparada = @qtdSeparada,
+    qtdConferida = @qtdConferida,
+    codFuncConf = @codFuncConf,
+    codFuncSep = @codFuncSep,
+    dtFimConferencia = @dtFimConferencia,
+    dtFimSeparacao = @dtFimSeparacao
+  where 
+    codProdutoErp = @codProdutoErp and
+    item = @item
+end
+
+```
+---
+
