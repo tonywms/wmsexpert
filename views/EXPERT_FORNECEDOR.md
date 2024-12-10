@@ -1,7 +1,5 @@
 Definição da view responsável pelo gerenciamento dos -- no sistema.  
 
-⬅️ Voltar para o README Principal
-
 ## Código SQL
 
 ```sql
