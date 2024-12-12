@@ -32,3 +32,19 @@ CREATE VIEW EXPERT_NOTAITEM ("ID", "CODIGONOTA", "ITEM", "CODIGOPRODUTO", "CODIG
     and (pcnfent.especie <> 'OE')  and pcnfent.dtent >= to_date('01/10/2024','dd/mm/yyyy')
   GROUP BY ROWNUM , pcmov.SEQMOV, pcmov.numnota, pcnfent.CODFILIAL,  pcnfent.CODFORNEC, pcmov.CODPROD, pcmov.valorultent,
   pcmov.DATAVALIDADE, pcmov.DATAFABRICACAO, pcmov.NUMLOTE, pcmov.codoper
+
+```
+**ID** : *O campo deve ser **INTEIRO**, o mesmo e a chave primaria.****<font color="red"> - obrigartorio</font>***<br/>
+**CODIGONOTA** : *O campo deve ser **VARCHAR(30)**, contendo o codigo da nota.****<font color="red"> - obrigartorio</font>***<br/>
+**ITEM** : *O campo deve ser **VARCHAR(50)**, contendo o item.****<font color="red"> - obrigartorio</font>***<br/>
+**CODIGOPRODUTO** : *O campo deve ser **VARCHAR(30)**, contendo o codigo da produto.****<font color="red"> - obrigartorio</font>***<br/>
+**CODIGOFILIAL** : *O campo deve ser **VARCHAR(30)**, contendo o codigo da filial.****<font color="red"> - obrigartorio</font>***<br/>
+**TIPO** : *O campo deve ser **INTEIRO**, trazendo o tipo.****<font color="red"> - obrigartorio</font>***<br/>
+**CODIGOFORNECEDOR** : *O campo deve ser **VARCHAR(30)**, contendo o codigo do fornecedor.****<font color="red"> - obrigartorio</font>***<br/>
+**QUANTIDADE** : *O campo deve ser **NUMERIC(10,4)**, contendo a quantidade.****<font color="red"> - obrigartorio</font>***<br/>
+**VALUNITARIO** : *O campo deve ser **NUMERIC(10,4)**, contendo o valunitario.****<font color="red"> - obrigartorio</font>***<br/>
+**VALIDADE** : *O campo deve ser **DATE**, contendo a validade.*<br/>
+**FABRICACAO** : *O campo deve ser **DATE**, contendo a fabricacao.*<br/>
+**LOTE** : *O campo deve ser **VARCHAR(50)**, contendo o lote.*<br/>
+**NUMSERIE** : *O campo deve ser **VARCHAR(50)**, contendo o numserie.*<br/>
+**EMBALAGEM** : *O campo deve ser **VARCHAR(20)**, contendo o embalagem.*<br/>
