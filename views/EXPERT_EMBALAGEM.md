@@ -30,3 +30,17 @@ FROM
       codauxiliar IS NOT null
   );
 
+```
+**ID** : *O campo deve ser **INTEIRO**, o mesmo e a chave primaria.****<font color="red"> - obrigartorio</font>***<br/>
+**CODIGO** : *O campo deve ser **VARCHAR(30)**, contendo o codigo da embalagem.****<font color="red"> - obrigartorio</font>***<br/>
+**CODIGOPRODUTO** : *O campo deve ser **VARCHAR(30)**, contendo o codigo do produto.****<font color="red"> - obrigartorio</font>***<br/>
+**CODBARRA** : *O campo deve ser **VARCHAR(20)**, contendo o codigo de barra.****<font color="red"> - obrigartorio</font>***<br/>
+**QUANTIDADE** : *O campo deve ser **NUMERIC(10,4)**, contendo a quantidade.****<font color="red"> - obrigartorio</font>***<br/>
+**ATIVO** : *O campo deve ser **INTEIRO**, trazendo se a embalagem esta ativo.****<font color="red"> - obrigartorio</font>***<br/>
+**TIPO** : *O campo deve ser **INTEIRO**, trazendo o tipo.****<font color="red"> - obrigartorio</font>***<br/>
+**LARGURA** : *O campo deve ser **NUMERIC(10,4)**, contendo a largura.*<br/>
+**ALTURA** : *O campo deve ser **NUMERIC(10,4)**, contendo a Altura.*<br/>
+**PROFUNDIDADE** : *O campo deve ser **NUMERIC(10,4)**, contendo a Profundidade.*<br/>
+**M3** : *O campo deve ser **NUMERIC(10,4)**, contendo a M3.*<br/>
+**PESOBRUTO** : *O campo deve ser **NUMERIC(10,4)**, contendo a Peso Bruto.*<br/>
+**PESOLIQUIDO** : *O campo deve ser **NUMERIC(10,4)**, contendo a Peso Liquido.*<br/>
