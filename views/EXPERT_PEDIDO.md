@@ -41,3 +41,20 @@ CREATE VIEW EXPERT_PEDIDO ("ID", "CODIGO", "VENDEDOR", "TIPO", "DATAIMPORTACAO",
     AND PCPEDC.CODCLI <> 3
     --and PCPEDC.ORIGEMPED = 'R'
     --and Coalesce(pcpedc.DTEMISSAOMAPA, pcpedc.Data) >= to_date('20240111', 'yyyymmdd')
+
+```
+**ID** : *O campo deve ser **INTEIRO**, o mesmo e a chave primaria.****<font color="red"> - obrigartorio</font>***<br/>
+**CODIGO** : *O campo deve ser **VARCHAR(30)**, contendo o codigo do pedido.****<font color="red"> - obrigartorio</font>***<br/>
+**VENDEDOR** : *O campo deve ser **VARCHAR(100)**, contendo o nome do vendedor.****<font color="red"> - obrigartorio</font>***<br/>
+**TIPO** : *O campo deve ser **INTEIRO**, trazendo o tipo.****<font color="red"> - obrigartorio</font>***<br/>
+**DATAIMPORTACAO** : *O campo deve ser **DATE**, trazendo a data de importação.*<br/>
+**CODIGOCLIENTE** : *O campo deve ser **VARCHAR(30)**, contendo o codigo do cliente.****<font color="red"> - obrigartorio</font>***<br/>
+**CODFILIAL** : *O campo deve ser **VARCHAR(30)**, contendo o codigo da filial.****<font color="red"> - obrigartorio</font>***<br/>
+**TOTALPEDIDO** : *O campo deve ser **NUMERIC(10,4)**, contendo o total do pedido.****<font color="red"> - obrigartorio</font>***<br/>
+**QTDITENS** : *O campo deve ser **INTEGER**, contendo o quantidade de itens.*<br/>
+**ORDEMPEDIDO** : *O campo deve ser **INTEGER**, contendo a ordem do pedido.*<br/>
+**SITUACAO** : *O campo deve ser **INTEIRO**, contendo a situação da nota.*<br/>
+**DTEXPORTACAO** : *O campo deve ser **DATE**, trazendo a data de exportação.*<br/>
+**CODIGOREF** : *O campo deve ser **VARCHAR(30)**, contendo o codigoref.*<br/>
+**OBS** : *O campo deve ser **VARCHAR(30)**, contendo uma obs.*<br/>
+**CODIGOCARREGAMENTO** : *O campo deve ser **VARCHAR(30)**, contendo o codigo do carregamento.****<font color="red"> - obrigartorio</font>***<br/>
