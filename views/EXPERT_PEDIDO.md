@@ -48,6 +48,7 @@ CREATE VIEW EXPERT_PEDIDO ("ID", "CODIGO", "VENDEDOR", "TIPO", "DATAEMISSAO", "D
 **CODIGO** : *O campo deve ser **VARCHAR(30)**, contendo o codigo do pedido.****<font color="red"> - obrigartorio</font>***<br/>
 **VENDEDOR** : *O campo deve ser **VARCHAR(100)**, contendo o nome do vendedor.****<font color="red"> - obrigartorio</font>***<br/>
 **TIPO** : *O campo deve ser **INTEIRO**, trazendo o tipo.****<font color="red"> - obrigartorio</font>***<br/>
+**DATAEMISSAO** : *O campo deve ser **DATE**, trazendo a data de importação.*<br/>
 **DATAIMPORTACAO** : *O campo deve ser **DATE**, trazendo a data de importação.*<br/>
 **CODIGOCLIENTE** : *O campo deve ser **VARCHAR(30)**, contendo o codigo do cliente.****<font color="red"> - obrigartorio</font>***<br/>
 **CODFILIAL** : *O campo deve ser **VARCHAR(30)**, contendo o codigo da filial.****<font color="red"> - obrigartorio</font>***<br/>
