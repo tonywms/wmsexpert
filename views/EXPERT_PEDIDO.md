@@ -5,12 +5,13 @@ Definição da view responsável pelo gerenciamento dos Pedidos no sistema.
 ## Código SQL
 
 ```sql
-CREATE VIEW EXPERT_PEDIDO ("ID", "CODIGO", "VENDEDOR", "TIPO", "DATAIMPORTACAO", "CODIGOCLIENTE", "CODFILIAL", "TOTALPEDIDO", "QTDITENS", "ORDEMPEDIDO", "STATUS", "DTEXPORTACAO", "CODIGOREF", "OBS", "CODIGOCARREGAMENTO") AS 
+CREATE VIEW EXPERT_PEDIDO ("ID", "CODIGO", "VENDEDOR", "TIPO", "DATAEMISSAO", "DATAIMPORTACAO", "CODIGOCLIENTE", "CODFILIAL", "TOTALPEDIDO", "QTDITENS", "ORDEMPEDIDO", "STATUS", "DTEXPORTACAO", "CODIGOREF", "OBS", "CODIGOCARREGAMENTO") AS 
   SELECT 
   	ROWNUM AS id,
     CAST(pcpedc.numped AS varchar(30)) codigo,
     'Teste' vendedor,
     1 tipo,
+    Coalesce(pcpedc.DTEMISSAOMAPA, pcpedc.Data) dataemissao,
     Coalesce(pcpedc.DTEMISSAOMAPA, pcpedc.Data) dataimportacao,
     CAST(pcpedc.codcli AS varchar(30)) codigocliente,
     CAST(pcpedc.codfilial AS varchar(30)) AS codigofilial,
